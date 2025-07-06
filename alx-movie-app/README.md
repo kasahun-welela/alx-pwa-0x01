@@ -1,40 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# API Overview (Simplified)
+The MoviesDatabase API lets you:
 
-## Getting Started
+Search and explore movies, TV shows, and actors
 
-First, run the development server:
+Get detailed info, ratings (like Rotten Tomatoes), trailers, and cast
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Filter by quality, genre, or rating
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Use pagination, sorting, and personalized recommendations
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Fetch streaming links and parental guides
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Every response has a results object; paginated endpoints also include page, next, and entries.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+# 🔗 Key Endpoints
+Endpoint	What It Does
+/movie_details.json	Get full info on a movie by ID or title
+/search_by_person.json	Find movies by actor or director
+/movie_recommendations.json	Get suggested movies based on genre or rating
+/streaming_services.json	See where a movie is available to stream legally
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Use this for quick 3D movie list:
 
-## Learn More
+bash
+Copy
+Edit
+GET https://api.rapidapi.com/your-api-path/list_movies?quality=3D
 
-To learn more about Next.js, take a look at the following resources:
+# 🔐 Authentication
+No API key is required — it’s free to use immediately.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+# ⚠️ Errors
+Code	Meaning
+400	Bad request (missing info)
+404	Not found (movie/person missing)
+500	Server error
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# 🚀 Usage Limits
+100 requests/minute
 
-## Deploy on Vercel
+10 requests/second
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.

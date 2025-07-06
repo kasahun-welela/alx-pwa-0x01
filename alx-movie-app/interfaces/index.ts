@@ -9,8 +9,7 @@ export interface ButtonProps {
   action?: () => void
 }
 
-export interface MovieProps {
-  id?: string
+export interface MovieProps{
   posterImage: string
   releaseYear: string
   title: string
